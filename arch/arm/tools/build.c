@@ -47,7 +47,7 @@ void load_menu(void)
 void Compile(void)
 {
 system
-("chmod 775 arch/arm/tools/mkbootimg ; make -j4 msm8916_sec_defconfig VARIANT_DEFCONFIG=msm8916_sec_defconfig SELINUX_DEFCONFIG=selinux_defconfig ; make -j4 ;mkdir system;mkdir system/lib/;mkdir system/lib/modules;rsync -r `find -type f -name '*.ko'` system/lib/modules;cp arch/arm/boot/zImage arch/arm/tools/zImage;mv system arch/arm/tools/;cd arch/arm/tools;cd boot.img-ramdisk;find . | cpio -o -H newc | gzip > ../boot.img-ramdisk.gz;cd ..;./mkbootimg --kernel zImage  --ramdisk boot.img-ramdisk.gz --ramdisk_offset 01300000 --tags_offset 00000100 --base 00200000 --pagesize 4096 -o boot.img;zip -r tmp META-INF boot.img system;rm -rf system boot.img zImage boot.img-ramdisk.gz;mv -f tmp.zip ../../../kernel-$(date +%Y%m%d)-3.4.0-UNOFFICIAL-j3ltespr.zip;clear");
+("chmod 775 arch/arm/tools/mkbootimg ; make -j4 msm8916_sec_j3lte_spr_defconfig VARIANT_DEFCONFIG=msm8916_sec_defconfig SELINUX_DEFCONFIG=selinux_defconfig ; make -j4 ;mkdir system;mkdir system/lib/;mkdir system/lib/modules;rsync -r `find -type f -name '*.ko'` system/lib/modules;cp arch/arm/boot/zImage arch/arm/tools/zImage;mv system arch/arm/tools/;cd arch/arm/tools;cd boot.img-ramdisk;find . | cpio -o -H newc | gzip > ../boot.img-ramdisk.gz;cd ..;./mkbootimg --kernel zImage  --ramdisk boot.img-ramdisk.gz --ramdisk_offset 01300000 --tags_offset 00000100 --base 00200000 --pagesize 4096 -o boot.img;zip -r tmp META-INF boot.img system;rm -rf system boot.img zImage boot.img-ramdisk.gz;mv -f tmp.zip ../../../kernel-$(date +%Y%m%d)-3.4.0-UNOFFICIAL-j3ltespr.zip;clear");
 system("rm build");
    return;
 }     
